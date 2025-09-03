@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+    <style>
+        .container {
+            display: block;
+            margin: 5% 10%;
+            text-align: center;
+            border: 1px solid lightgray;
+            border-radius: 24px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+            background-color: white;
+            padding: 3% 5%;
+            color: black;
+        }
+        .box1 {
+            display: grid;
+            margin: auto;
+            padding: 5px;
+            color: black;
+        }
+        .box2 {
+            display: flex;
+            margin: auto;
+            padding: 5px;
+            color: black;
+        }
+        .box2 h2 {
+            color: #202020;
+            font-weight: bold;
+            margin: auto 15px;
+            border-left: 2px solid darkgreen;
+            padding-left: 4px;
+        }
+
+        ul {
+            margin: 5px 30px;
+            padding: 0;
+        }
+        .listyle li {
+            display: grid;
+            background-color: darkgreen;
+            color: white;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 25px;
+            font-size: 20px;
+        }
+        table {
+            border: 1px solid darkslategray;
+            border-radius: 10px;
+            padding: 0 0;
+            margin: auto;
+            width: 240px;
+            height: 200px;
+            color: white;
+            background-color: darkseagreen;
+        }
+        tr, td {
+            background-color: darkseagreen;
+            padding: 0;
+            margin: 0;
+            font-size: 20px;
+        }
+        th {
+            background-color: seagreen;
+            padding: 0;
+            margin: 0;
+            font-size: 25px;
+        }
+
+        .image {
+            display: block;
+            border-radius: 90px;
+            margin: auto;
+        }
+        .name {
+            text-align: center;
+            font-weight: bold;
+            font-size: 40px;
+        }
+        .duce {
+            padding: 0px 50px;
+            font-size: 30px;
+        }
+        .vide {
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="outer">
+<!--    <p>프로필페이지베이직공간</p>-->
+    <img class="image" src="metamon.jpg" alt="프로필 이미지" width="250" height="250">
+    <div class="box1" id="inner">
+        <p class="name">변채주</p>
+        <p class="duce">일단 하고 보자!<br>
+            노는 게 제일 좋은 개발자입니다.<br>
+            질문을 받으면 답하고 싶어하는 성질이 강해 TMI를 발사할 수 있습니다.<br>(주의가 필요합니다.)
+        </p>
+    </div>
+    <div class="box2">
+        <h2>관심분야</h2>
+        <table>
+            <tr>
+                <th>직무</th>
+                <th>취미</th>
+            </tr>
+            <tr>
+                <td>개발</td>
+                <td>요리</td>
+            </tr>
+            <tr>
+                <td>디자인</td>
+                <td>수공예</td>
+            </tr>
+            <tr>
+                <td>게임</td>
+                <td>음악</td>
+            </tr>
+        </table>
+<!--        <ul class="listyle">-->
+<!--            <li>게임</li>-->
+<!--            <li>개발</li>-->
+<!--            <li>디자인</li>-->
+<!--            <li>요리</li>-->
+<!--            <li>수공예</li>-->
+<!--            <li>음악</li>-->
+<!--        </ul>-->
+        <p>
+        <h2>Skills</h2>
+        <ul class="listyle">
+            <li>C</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>Photoshop</li>
+            <li>Knitting</li>
+            <li>English</li>
+        </ul>
+        </p>
+        <p>
+        <h2>연락처</h2>
+        <ul class="listyle">
+            <li>(E-mail) bchaejoo@gmail.com</li>
+            <li>(Phone) 010-1234-5678</li>
+            <li>(GitHub) <a href="https://github.com/B-ChJ/spartaSpring1-repo.git" target="_blank">바로가기</a>
+            </li>
+        </ul>
+        </p>
+    </div>
+</div>
+<div class="container">
+    <iframe class="vide" width="560" height="315" src="https://www.youtube.com/embed/vEqvUuTH6OE?si=cHzH3k-cVjnN1hFe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</body>
+</html>

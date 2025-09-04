@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>What Do I eat?! LUNCH</title>
+    <style>
+        .container {
+            display: block;
+            margin: 5% 10%;
+            text-align: left;
+            border: 1px solid lightgray;
+            border-radius: 24px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+            background-color: white;
+            padding: 3% 5%;
+            color: black;
+        }
+        .box1 {
+            display: grid;
+            margin: left;
+            padding: 5px;
+            color: black;
+        }
+        .button_sub {
+            border: none;
+            height: min-content;
+            margin-left: 5px;
+            background-color: green;
+            color: white;
+            padding: 10px 5px;
+            cursor: pointer;
+        }
+        </style>
+</head>
+<body>
+ <div class="container">
+  <h1>점심 메뉴 추천기</h1>
+     <form id="result" action="https://acc39f19-221e-4273-bfc0-0cd6039277fe.mock.pstmn.io/lunch" method="get" class="box1" target="_blank">
+         <div class="box1">
+         <label>맵기 정도</label>
+         <select name="맵기 정도" required>
+             <option value="" disabled selected>매운 정도 선택</option>
+             <option value="Baby">순한맛</option>
+             <option value="Children">약간매운맛</option>
+             <option value="Spicy">매운맛</option>
+             <option value="BulSpicy">불매운맛</option>
+             <option value="Emergency">핵매운맛</option>
+         </select>
+             <label>예산</label>
+                 <input type="range" name="budget" id="budget" min="0" max="100000" step="1000">
+                 <p>
+                     <output for="budget" id="budget_output"></output> 원 </p>
+             <label>음식 종류</label>
+             <fieldset>
+             <div>
+             <input type="radio" name="food" value="한식" id="Korean" required>
+                 <label for="Korean">한식</label>
+             </div>
+                 <div>
+                     <input type="radio" id="Italian" name="food" value="양식">
+                     <label for="Italian">양식</label>
+                 </div>
+                 <div>
+                     <input type="radio" id="Japanese" name="food" value="일식">
+                     <label for="Japanese">일식</label>
+                 </div>
+                 <div>
+                     <input type="radio" id="Chinese" name="food" value="중식">
+                     <label for="Chinese">중식</label>
+                 </div>
+                 <div>
+                     <input type="radio" id="Snack" name="food" value="분식">
+                     <label for="Snack">분식</label>
+                 </div>
+             </fieldset>
+             <label for="feel">오늘의 기분</label>
+             <input type="text" name="기분" id="feel" placeholder="오늘의 기분을 입력하세요." required>
+
+         </div>
+         <button type="submit" id="submit_f" class="button_sub">제출하기</button>
+     </form>
+ </div>
+<script>
+    document.getElementById("result").addEventListener("submit", submitted);
+/*폼 제출하기*/
+    function submitted(sub_e) {
+        sub_e.preventDefault();
+        const lunch = document.querySelector("#result");
+        const formData = new FormData(lunch);
+        const dataObj = Object.fromEntries(formData.entries());
+        console.log(dataObj);
+        window.open("https://acc39f19-221e-4273-bfc0-0cd6039277fe.mock.pstmn.io/lunch", "whatmenu", "width=400, height=400");
+    }
+    /*fetch()로 가장 최근에 생성된 menu 값 alert로 띄우기*/
+    async function Recommend(recom_e) {
+        recom_e.preventDefault();
+        await fetchData();
+    }
+    async function fetchData() {
+        /*fetch()로 API 호출*/
+        try {
+            const data = await fetch("https://6863bafe88359a373e960f61.mockapi.io/sparta/web/lunch");
+            const F_result = await data.json();
+            console.log(F_result);
+        }
+        /*에러 발생 시 메시지 표시*/
+        catch (error) {
+            console.error("오류 발생");
+            alert("추천 실패...굶읍시다");}
+    }
+    /*budget의 값 실시간으로 화면에 보여주기*/
+    const value_money = document.querySelector("#budget_output");
+    const input_money = document.querySelector("#budget");
+    value_money.textContent = input_money.value;
+    input_money.addEventListener("input", (event) => {value_money.textContent = event.target.value;});
+
+</script>
+</body>
+
+</html>

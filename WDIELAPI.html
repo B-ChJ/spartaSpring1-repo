@@ -103,9 +103,9 @@
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(Json_layer)
             });
-            const {recommendation} = await act.json();
+            const data = await act.json();
             const popup = window.open("", "whatmenu", "width=480, height=340");
-            popup.document.body.innerHTML = `<h2>추천 결과</h2><p class="box1">${recommendation}</p>`;
+            popup.document.body.innerHTML = `<h2>추천 결과</h2><pre class="box1">${JSON.stringify(data, null, 2)}</pre>`;
         } catch(error) {
             console.error(error);
             alert("추천 실패...");

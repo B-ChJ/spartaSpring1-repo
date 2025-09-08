@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>자기소개 결과 화면</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+      .section {
+          width: 360px;
+          margin: 40px auto;
+          padding: 24px;
+          background-color: #fafafa;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          font-family: 'Noto Sans KR', sans-serif;
+      }
+      /*제목 설정*/
+      .section h1 {
+          text-align: center;
+          font-size: 1.5rem;
+          color: #333;
+          margin-bottom: 20px;
+      }
+  </style>
+</head>
+
+<body>
+<div class="section">
+<h1>사용자 정보</h1>
+<p>안녕하세요! 저는
+    <span th:text="${person.name}">이름</span>입니다.
+저는 <span th:text="${person.age}">나이</span>살이고
+    <span th:text="${person.mbti}">MBTI</span>이며
+    <span th:text="${person.food}">좋아하는 음식</span>을(를) 좋아하고
+    <span th:text="${person.color}">좋아하는 색상</span>색을 좋아해요!</p>
+</div>
+</body>
+
+</html>
